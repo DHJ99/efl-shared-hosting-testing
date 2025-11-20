@@ -1,23 +1,8 @@
 ---
 deployment:
   tasks:
-    - echo "Starting deployment..."
-
-    # Go into repo directory
-    - cd /home/aspireso/DHJ99/efl-shared-hosting-testing
-
-    # Clean old build artifacts (optional)
-    - rm -rf out
-
-    # Use absolute npm path (VERY IMPORTANT)
-    - /opt/cpanel/ea-nodejs20/bin/npm ci
-    - /opt/cpanel/ea-nodejs20/bin/npm run build
-    - /opt/cpanel/ea-nodejs20/bin/npm run export
-
-    # Clear target directory
-    - rm -rf /home/aspireso/public_html/dev-test.aspire-solution.com/*
-
-    # Copy files to subdomain root
-    - cp -R out/* /home/aspireso/public_html/dev-test.aspire-solution.com/
-
-    - echo "Deployment complete!"
+    - export DEPLOYPATH=/home/aspireso/dev-test.aspire-solution.com/
+    - /bin/npm install
+    - /bin/npm run build
+    - /bin/npm run export
+    - /bin/cp -R out/* $DEPLOYPATH
