@@ -4,7 +4,7 @@ deployment:
     - echo "Starting deployment..."
 
     # Go into repo directory
-    - cd /home/aspireso/repositories/efl-shared-hosting-testing
+    - cd /home/aspireso/DHJ99/efl-shared-hosting-testing
 
     # Clean old build artifacts (optional)
     - rm -rf out
