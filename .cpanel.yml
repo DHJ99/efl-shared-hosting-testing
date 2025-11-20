@@ -1,16 +1,9 @@
+---
 deployment:
   tasks:
-    - export DEPLOY_PATH=/home/$aspireso/public_html/dev-test.aspire-solution.com
-
-    # Clean old deployment
-    - run: rm -rf $DEPLOY_PATH/*
-
-    # Install Node.js dependencies
-    - run: npm ci
-
-    # Build + Static Export
-    - run: npm run build
-    - run: npm run export
-
-    # Copy exported site (out folder) to subdomain root
-    - run: cp -R out/* $DEPLOY_PATH/
+    - export DEPLOY_PATH=/home/aspireso/public_html/dev-test.aspire-solution.com
+    - rm -rf $DEPLOY_PATH/*
+    - npm ci
+    - npm run build
+    - npm run export
+    - cp -R out/* $DEPLOY_PATH/
