@@ -2,7 +2,8 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/aspireso/dev-test.aspire-solution.com/
-    - /bin/npm install
-    - /bin/npm run build
-    - /bin/npm run export
+    - export NODE_PATH=/opt/cpanel/ea-nodejs20/bin/
+    - /opt/cpanel/ea-nodejs20/bin/npm install
+    - /opt/cpanel/ea-nodejs20/bin/npm run build
+    - /opt/cpanel/ea-nodejs20/bin/npm run export
     - /bin/cp -R out/* $DEPLOYPATH
